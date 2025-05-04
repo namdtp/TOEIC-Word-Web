@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import wordList from "../data/wordList";
-import "../styles/FlashCardMode.css"; 
+import { Box, Typography, Button, Stack, Paper } from "@mui/material";
 
 const FlashCardMode = () => {
   const [index, setIndex] = useState(0);
@@ -26,15 +26,17 @@ const FlashCardMode = () => {
   };
 
   return (
-    <div className="container">
-      <h1 className="title">📘 토익 영단어 📘</h1>
+    <Box textAlign="center">
+      <Typography variant="h5" gutterBottom>
+        📘 Từ vựng 📘
+      </Typography>
       <Flashcard word={wordList[index]} />
-      <div className="button-group">
-        <button onClick={prevCard}>⬅️ 이전</button>
-        <button onClick={nextCard}>다음 ➡️</button>
-        <button onClick={randomCard}>🔀 랜덤</button>
-      </div>
-    </div>
+      <Stack direction="row" spacing={2} justifyContent="center" mt={2}>
+        <Button variant="outlined" onClick={prevCard}>⬅️ Trước</Button>
+        <Button variant="outlined" onClick={nextCard}>Tiếp ➡️</Button>
+        <Button variant="outlined" onClick={randomCard}>🔀 Ngẫu nhiên</Button>
+      </Stack>
+    </Box>
   );
 };
 
@@ -46,16 +48,26 @@ const Flashcard = ({ word }) => {
   };
 
   return (
-    <div className={`flashcard ${flipped ? "flipped" : ""}`} onClick={toggleFlip}>
-      <div className="flashcard-inner">
-        <div className="flashcard-front">{word.english}</div>
-        <div className="flashcard-back">{word.korean}</div>
-      </div>
-    </div>
+    <Paper
+      elevation={3}
+      sx={{
+        width: 300,
+        height: 180,
+        mx: "auto",
+        my: 2,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 24,
+        fontWeight: "bold",
+        cursor: "pointer",
+        bgcolor: flipped ? "warning.dark" : "info.dark"
+      }}
+      onClick={toggleFlip}
+    >
+      {flipped ? word.vietnamese : word.english}
+    </Paper>
   );
 };
 
 export default FlashCardMode;
-
-
-

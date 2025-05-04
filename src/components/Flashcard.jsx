@@ -12,7 +12,7 @@ function Flashcard({ word }) {
     <div className="flashcard-container" onClick={() => setFlipped(!flipped)}>
       <div className={`flashcard ${flipped ? 'flipped' : ''}`}>
         <div className="front">{word.english}</div>
-        <div className="back">{word.korean}</div>
+        <div className="back">{word.vietnamese}</div>
       </div>
     </div>
   )

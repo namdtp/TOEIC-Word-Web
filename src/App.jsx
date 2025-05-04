@@ -1,28 +1,40 @@
-import React, { useState } from "react";
-import FlashCardMode from "./components/FlashCardMode";
+// App.jsx
+import React from "react";
 import TestMode from "./components/TestMode";
+import {
+  Container,
+  Typography,
+  CssBaseline,
+  ThemeProvider,
+  createTheme,
+} from "@mui/material";
+
+const customPalette = {
+  mode: "light",
+  primary: { main: "#10a37f" },
+  secondary: { main: "#0077cc" },
+  background: {
+    default: "#f7f7f8",
+    paper: "#ffffff",
+  },
+  text: {
+    primary: "#1e1e1e" },
+};
+
+const lightTheme = createTheme({ palette: customPalette });
 
 const App = () => {
-  const [mode, setMode] = useState("flash"); // "flash" or "test"
-
   return (
-    <div className="p-4">
-      <div className="mb-4">
-        <h1 className="text-2xl font-bold text-center mb-2">🧠 토익 영단어 학습 🧠</h1>
-        <div className="flex justify-center">
-          <button
-            onClick={() => setMode(mode === "flash" ? "test" : "flash")}
-            className="bg-blue-500 text-white px-4 py-2 rounded"
-          >
-            {mode === "flash" ? "테스트 모드로 전환" : "플래시카드 모드로 전환"}
-          </button>
-        </div>
-      </div>
-
-      {mode === "flash" ? <FlashCardMode /> : <TestMode />}
-    </div>
+    <ThemeProvider theme={lightTheme}>
+      <CssBaseline />
+      <Container sx={{ py: 4 }}>
+        <Typography variant="h4" align="center" fontWeight="bold" gutterBottom>
+           Học từ vựng - Kiểm tra 
+        </Typography>
+        <TestMode />
+      </Container>
+    </ThemeProvider>
   );
 };
 
 export default App;
-

@@ -1,4 +1,9 @@
 const wordList = [
+  { "english": "initially", "vietnamese": "ban đầu, thuở đầu" },
+  { "english": "courteously", "vietnamese": "một cách lịch sự và thể hiện sự tôn trọng" },
+  { "english": "periodically", "vietnamese": "một cách lặp lại sau một khoảng thời gian nhất định" },
+  { "english": "extreme", "vietnamese": "Cực đoan" },
+
   { "english": "Agenda", "vietnamese": "Chương trình nghị sự: Danh sách các mục sẽ được thảo luận trong cuộc họp" },
   { "english": "Asset", "vietnamese": "Tài sản: Thứ gì đó có giá trị thuộc sở hữu của công ty" },
   { "english": "Audit", "vietnamese": "Kiểm toán: Việc kiểm tra chính thức các hồ sơ tài chính" },
